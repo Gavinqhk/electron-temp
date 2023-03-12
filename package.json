@@ -1,0 +1,45 @@
+{
+  "name": "ele",
+  "version": "1.0.0",
+  "description": "qiuhk codes base in electron vue qiankun react",
+  "main": "./app/main/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "concurrently \"npm run serve:renderer\" \"wait-on http://localhost:8080 && npm run serve:electron\" ",
+    "serve:electron": "electron .",
+    "serve:renderer": "cd ./app/renderer && npm run serve",
+    "build:renderer": "cd ./app/renderer && npm run build",
+    "build:electron": "electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "vue",
+    "qiankun",
+    "react"
+  ],
+  "author": "qiuhk",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "electron": "^17.1.2",
+    "electron-builder": "^23.6.0",
+    "wait-on": "^6.0.1"
+  },
+  "dependencies": {
+    "about-window": "^1.15.2",
+    "electron-is-dev": "^2.0.0"
+  },
+  "build": {
+    "appId": "com.electron.ele",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "your.app.category.type"
+    },
+    "dmg": {
+      "backgroundColor": "#fff"
+    }
+  }
+}
